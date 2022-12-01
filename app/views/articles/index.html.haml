@@ -1,0 +1,77 @@
+%link{:href => "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css", :rel => "stylesheet"}/
+%h1 Articles
+%table.table.table-striped
+  %thead.table-dark
+    %tr
+      %th{:scope => "col"} Article
+      %th{:scope => "col"}
+  %tbody
+    - @articles.each do |article|
+      %tr
+        %td= article.name
+        %td= link_to 'show',article
+= link_to "New Article",new_article_path
+%br/
+.container
+  .row
+    .col-xs-1.col-sm-1.col-md-1.col-lg-1
+      %label.form-label{:for => "priority"} Priority
+      %br/
+      %i.bi.bi-circle-fill
+      %i.bi.bi-circle-fill.icon
+    .col-xs-2.col-sm-2.col-md-2.col-lg-2
+      %label.form-label{:for => "task"} Task
+      %textarea#task.form-control{:rows => "1"}
+    .col-xs-2.col-sm-2.col-md-2.col-lg-2
+      %label.form-label{:for => "user"} User
+      %input#user.form-control{:type => "text"}/
+    .col-xs-1.col-sm-1.col-md-1.col-lg-1
+      %label.form-label{:for => "start"} Start
+      %input#start.form-control{:type => "text"}/
+    .col-xs-1.col-sm-1.col-md-1.col-lg-1
+      %label.form-label{:for => "end"} End
+      %input#end.form-control{:type => "text"}/
+    .col-xs-1.col-sm-1.col-md-1.col-lg-1
+      %label.form-label{:for => "status"} Status
+      %select#status.form-control
+        %option{:selected => "selected"} Choose
+        %option{:value => "1"} One
+        %option{:value => "2"} Two
+        %option{:value => "3"} Three
+    .col-xs-1.col-sm-1.col-md-1.col-lg-1
+      %label.form-label{:for => "duration"} Duration
+      %select#duration.form-control
+        %option{:selected => "selected"} Choose
+        %option{:value => "1"} One
+        %option{:value => "2"} Two
+        %option{:value => "3"} Three
+    .col-xs-1.col-sm-1.col-md-1.col-lg-1
+      %label.form-label{:for => "access"} Access
+      %select#access.form-control
+        %option{:selected => "selected"} Choose
+        %option{:value => "1"} One
+        %option{:value => "2"} Two
+        %option{:value => "3"} Three
+    .col-xs-1.col-sm-1.col-md-1.col-lg-1
+      %label.form-label{:for => "actions"} Actions
+      .dropdown
+        %button{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :type => "button"}
+          %i.bi.bi-three-dots-vertical
+        %ul.dropdown-menu
+          %li
+            %a.dropdown-item{:href => "#"} Action
+          %li
+            %a.dropdown-item{:href => "#"} Another action
+          %li
+            %a.dropdown-item{:href => "#"} Something else here
+:css
+  button{
+    border: none;
+  }
+  .icon{
+    visibility:hidden;
+  }
+  .container:hover .icon{
+       visibility:visible;
+       color:blue;
+  }
